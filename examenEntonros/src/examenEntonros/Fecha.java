@@ -1,22 +1,22 @@
 package examenEntonros;
 
 public class Fecha {
-	private int d;
-	private int m;
-	private int a;
-	public Fecha(int d, int m, int a) {
-	this.d = d;
-	this.m = m;
-	this.a = a;
+	private int dia;
+	private int mes;
+	private int año;
+	public Fecha(int dia, int mes, int año) {
+	this.dia = dia;
+	this.mes = mes;
+	this.año = año;
 	}
 	public boolean valida () {
-	if (d < 1 || d > 31)
+	if (año < 1 || año > 31)
 	return false;
-	if (m < 1 || m > 12)
+	if (mes < 1 || mes > 12)
 	return false;
 	//determinamos la cantidad de días del mes:
 	int diasMes = 0;
-	switch (m) {
+	switch (mes) {
 	case 1:
 	case 3:
 	case 5:
@@ -29,12 +29,12 @@ public class Fecha {
 	case 9:
 	case 11: diasMes = 30; break;
 	case 2: // verificación de año bisiesto
-	if ((a%400 == 0)||((a % 4 == 0)&&(a% 100 != 0)))
+	if ((año%400 == 0)||((año % 4 == 0)&&(año% 100 != 0)))
 	diasMes = 29;
 	else diasMes = 28;
 	break;
 	}
-	if (d > diasMes)
+	if (dia > diasMes)
 	return false;
 	else return true;
 	}
